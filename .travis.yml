@@ -19,8 +19,8 @@ script:
                 -t "codingdojo/engineeringdojo:${TRAVIS_REPO_SLUG//\//_}" -f docker/DOCKERFILE docker/
 
 after_success:
-  - if [[ ${DOCKERHUB} = true && ${DOCKER_EMAIL} && ${DOCKER_USERNAME} && ${DOCKER_PASSWORD} && ${TRAVIS_PULL_REQUEST} == false && ${TRAVIS_BRANCH} == docker ]]; then
-      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "mightynerderic:${TRAVIS_REPO_SLUG//\//_}";
+  - if [[ ${DOCKERHUB} = true && ${DOCKER_EMAIL} && ${DOCKER_USERNAME} && ${DOCKER_PASSWORD} && ${TRAVIS_PULL_REQUEST} == false && ${TRAVIS_BRANCH} == master ]]; then
+      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "codingdojo/engineeringdojo:${TRAVIS_REPO_SLUG//\//_}";
    fi
 
 compiler:
